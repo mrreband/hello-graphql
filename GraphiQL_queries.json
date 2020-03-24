@@ -1,0 +1,35 @@
+mutation concatenateFields($name:String!, $age:Int!)
+{
+  concatenateFields(name:$name, age:$age)
+}
+
+query getSimpson($name:String!)
+{
+  simpson(name:$name)
+  {
+    description, 
+    age
+  }
+}
+
+query getAges
+{
+  simpsons
+  {
+    ...ages
+  }
+}
+
+query getSimpsons
+{
+  simpsons {
+    name
+    age
+    description
+  }
+}
+
+fragment ages on Simpson {
+  name, 
+  age
+}
